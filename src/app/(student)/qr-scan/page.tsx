@@ -12,13 +12,13 @@ import { parseQRCode } from "@/lib/qr-utils";
 
 export default function QRScanPage() {
   const { user } = useAuth();
-  if (!user) return null;
-  const { t: tx } = useTranslation(user.locale as any);
+  const { t: tx } = useTranslation((user?.locale as any) || "en");
   const router = useRouter();
 
   const [scannedData, setScannedData] = React.useState<string | null>(null);
   const [parsed, setParsed] = React.useState<any>(null);
   const [status, setStatus] = React.useState<"idle" | "scanning" | "found" | "not-cached" | "error">("idle");
+  if (!user) return null;
 
   const handleScan = (data: string) => {
     setScannedData(data);

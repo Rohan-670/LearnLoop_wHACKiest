@@ -15,6 +15,7 @@ export function Input({ label, error, className, ...props }: InputProps) {
     <div className={cn("mb-4", className)}>
       {label && <label className="block text-sm font-medium text-slate-700 mb-1.5">{label}</label>}
       <input
+        suppressHydrationWarning
         className={cn(
           "block w-full rounded-md border bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:border-teal-600 focus:ring-1 focus:ring-teal-600 focus:outline-none",
           error ? "border-rose-500 focus:ring-rose-500" : "border-slate-200"
@@ -38,6 +39,7 @@ export function Textarea({ label, error, className, ...props }: TextareaProps) {
     <div className={cn("mb-4", className)}>
       {label && <label className="block text-sm font-medium text-slate-700 mb-1.5">{label}</label>}
       <textarea
+        suppressHydrationWarning
         className={cn(
           "block w-full rounded-md border bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:border-teal-600 focus:ring-1 focus:ring-teal-600 focus:outline-none",
           error ? "border-rose-500 focus:ring-rose-500" : "border-slate-200",

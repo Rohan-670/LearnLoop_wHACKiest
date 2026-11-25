@@ -11,8 +11,8 @@ import { Users, BookOpen, Activity, ShieldAlert, WifiOff, Clock } from "lucide-r
 
 export default function TeacherDashboard() {
   const { user, logout } = useAuth();
+  const { t: tx, locale } = useTranslation((user?.locale as any) || "en");
   if (!user) return null;
-  const { t: tx, locale } = useTranslation(user.locale as any);
 
   const stats = [
     { label: tx("teacher", "total_students"), value: "24", icon: Users },

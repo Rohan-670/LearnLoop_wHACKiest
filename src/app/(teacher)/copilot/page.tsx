@@ -10,8 +10,8 @@ import { ShieldAlert, Activity, ArrowLeft, Bot } from "lucide-react";
 
 export default function TeacherCopilotPage() {
   const { user } = useAuth();
+  const { t: tx } = useTranslation((user?.locale as any) || "en");
   if (!user) return null;
-  const { t: tx } = useTranslation(user.locale as any);
 
   const suggestions = [
     {

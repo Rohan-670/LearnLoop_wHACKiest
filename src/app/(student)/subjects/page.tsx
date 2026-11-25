@@ -12,8 +12,8 @@ import Link from "next/link";
 
 export default function SubjectsPage() {
   const { user } = useAuth();
+  const { t: tx, locale } = useTranslation((user?.locale as any) || "en");
   if (!user) return null;
-  const { t: tx, locale } = useTranslation(user.locale as any);
 
   return (
     <div className="space-y-6">

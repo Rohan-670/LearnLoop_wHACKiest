@@ -10,8 +10,8 @@ import { BookOpen, Activity, ArrowLeft } from "lucide-react";
 
 export default function AdminContentPage() {
   const { user } = useAuth();
+  const { t: tx } = useTranslation((user?.locale as any) || "en");
   if (!user) return null;
-  const { t: tx } = useTranslation(user.locale as any);
 
   return (
     <div className="space-y-6">

@@ -18,9 +18,9 @@ import {
 
 export default function StudentDashboard() {
   const { user, logout, setLocale } = useAuth();
-  if (!user) return null;
-  const { t: tx, locale } = useTranslation(user.locale as any);
+  const { t: tx, locale } = useTranslation((user?.locale as any) || "en");
   const [dataMode, setDataMode] = React.useState<"saver" | "balanced" | "rich">("balanced");
+  if (!user) return null;
 
   const stats = [
     { label: tx("student", "mastered"), value: "3", icon: ShieldAlert },

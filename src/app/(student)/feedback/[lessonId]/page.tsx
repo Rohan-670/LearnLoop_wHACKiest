@@ -18,11 +18,11 @@ interface FeedbackPageProps {
 export default function FeedbackPage({ params }: FeedbackPageProps) {
   const { lessonId } = use(params);
   const { user } = useAuth();
-  if (!user) return null;
-  const { t: tx } = useTranslation(user.locale as any);
+  const { t: tx } = useTranslation((user?.locale as any) || "en");
   const router = useRouter();
 
   const [misconception, setMisconception] = React.useState<any>(null);
+  if (!user) return null;
 
   const handleDetect = (answer: string) => {
     const result = detectMisconception(answer, "fractions-addition", []);

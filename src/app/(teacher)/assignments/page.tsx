@@ -10,8 +10,8 @@ import { BookOpen, Activity, ArrowLeft, ShieldAlert } from "lucide-react";
 
 export default function TeacherAssignmentsPage() {
   const { user } = useAuth();
+  const { t: tx } = useTranslation((user?.locale as any) || "en");
   if (!user) return null;
-  const { t: tx } = useTranslation(user.locale as any);
 
   const assignments = [
     { id: "a-1", title: "Fractions Practice", class: "Grade 8 Mathematics", due: "2024-01-15", status: "published" },

@@ -10,8 +10,8 @@ import { Users, Activity, ArrowLeft, Clock } from "lucide-react";
 
 export default function TeacherClassesPage() {
   const { user } = useAuth();
+  const { t: tx } = useTranslation((user?.locale as any) || "en");
   if (!user) return null;
-  const { t: tx } = useTranslation(user.locale as any);
 
   const classes = [
     { id: "class-1", name: "Grade 8 Mathematics", students: 24, subject: "Mathematics" },

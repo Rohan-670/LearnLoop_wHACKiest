@@ -10,8 +10,8 @@ import { Users, Activity, ArrowLeft } from "lucide-react";
 
 export default function AdminUsersPage() {
   const { user } = useAuth();
+  const { t: tx } = useTranslation((user?.locale as any) || "en");
   if (!user) return null;
-  const { t: tx } = useTranslation(user.locale as any);
 
   const users = [
     { id: "u-1", name: "Ananya", email: "ananya@example.in", role: "Student", status: "Active" },

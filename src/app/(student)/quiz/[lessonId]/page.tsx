@@ -19,8 +19,7 @@ interface QuizPageProps {
 export default function QuizPage({ params }: QuizPageProps) {
   const { lessonId } = use(params);
   const { user } = useAuth();
-  if (!user) return null;
-  const { t: tx } = useTranslation(user.locale as any);
+  const { t: tx } = useTranslation((user?.locale as any) || "en");
   const router = useRouter();
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = React.useState(0);
@@ -29,6 +28,7 @@ export default function QuizPage({ params }: QuizPageProps) {
   const [showFeedback, setShowFeedback] = React.useState(false);
   const [misconception, setMisconception] = React.useState<any>(null);
   const [attempts, setAttempts] = React.useState<any[]>([]);
+  if (!user) return null;
 
   const lessonQuestions = QUESTIONS.filter((q) => q.lessonId === lessonId);
   const currentQuestion = lessonQuestions[currentQuestionIndex];

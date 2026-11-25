@@ -12,11 +12,10 @@ import { LESSONS } from "@/lib/learning-engine";
 
 export default function QRGeneratePage() {
   const { user } = useAuth();
-  if (!user) return null;
-  const { t: tx } = useTranslation(user.locale as any);
-
+  const { t: tx } = useTranslation((user?.locale as any) || "en");
   const [qrDataUrl, setQrDataUrl] = React.useState<string | null>(null);
   const [selectedLesson, setSelectedLesson] = React.useState<string>("");
+  if (!user) return null;
 
   const handleGenerate = async () => {
     if (!selectedLesson) return;

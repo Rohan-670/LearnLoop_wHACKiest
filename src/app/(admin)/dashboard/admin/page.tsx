@@ -11,8 +11,8 @@ import { Users, BookOpen, Settings, Activity } from "lucide-react";
 
 export default function AdminDashboard() {
   const { user, logout } = useAuth();
+  const { t: tx, locale } = useTranslation((user?.locale as any) || "en");
   if (!user) return null;
-  const { t: tx, locale } = useTranslation(user.locale as any);
 
   const stats = [
     { label: tx("admin", "total_users"), value: "150", icon: Users },

@@ -10,8 +10,8 @@ import { ShieldAlert, Activity, TrendingUp, Clock } from "lucide-react";
 
 export default function LearningDNAPage() {
   const { user } = useAuth();
+  const { t: tx } = useTranslation((user?.locale as any) || "en");
   if (!user) return null;
-  const { t: tx } = useTranslation(user.locale as any);
 
   const dna = {
     topicMastery: [

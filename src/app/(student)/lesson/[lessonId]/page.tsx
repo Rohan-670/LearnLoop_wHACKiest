@@ -18,9 +18,9 @@ interface LessonPageProps {
 export default function LessonPage({ params }: LessonPageProps) {
   const { lessonId } = use(params);
   const { user } = useAuth();
-  if (!user) return null;
-  const { t: tx } = useTranslation(user.locale as any);
+  const { t: tx } = useTranslation((user?.locale as any) || "en");
   const router = useRouter();
+  if (!user) return null;
 
   const lesson = LESSONS.find((l) => l.id === lessonId) || LESSONS[0];
 
