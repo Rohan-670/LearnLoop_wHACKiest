@@ -174,16 +174,22 @@ export default function QuizPage({ params }: QuizPageProps) {
         </Card>
       )}
 
-      {!submitted && (
+      {!submitted ? (
         <Button variant="primary" onClick={handleSubmit} disabled={!selectedAnswer} className="w-full">
-          {tx("student", "submit")}
+          {tx("common", "submit")}
         </Button>
-      )}
-
-      {submitted && !showFeedback && currentQuestionIndex < lessonQuestions.length - 1 && (
-        <Button variant="primary" onClick={handleNext} className="w-full">
-          {tx("common", "next")}
-        </Button>
+      ) : (
+        <div className="pt-2">
+          {currentQuestionIndex < lessonQuestions.length - 1 ? (
+            <Button variant="primary" onClick={handleNext} className="w-full">
+              {tx("common", "next")}
+            </Button>
+          ) : (
+            <Button variant="primary" onClick={() => setCurrentQuestionIndex((prev) => prev + 1)} className="w-full">
+              {tx("student", "lesson_complete")}
+            </Button>
+          )}
+        </div>
       )}
     </div>
   );

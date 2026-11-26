@@ -23,7 +23,13 @@ export function MainLayout({
 
   return (
     <div className="min-h-screen bg-slate-50">
-      <TopNav user={user} onLogout={onLogout} />
+      <TopNav
+        user={user}
+        onLogout={onLogout}
+        currentLocale={user.locale}
+        onLocaleChange={onLocaleChange}
+        onOpenMobileMenu={() => setSidebarOpen(true)}
+      />
       <div className="flex">
         <Sidebar
           role={role}

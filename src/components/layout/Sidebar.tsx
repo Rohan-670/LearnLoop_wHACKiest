@@ -18,6 +18,8 @@ import {
 import { useTranslation, t, LOCALES } from "@/lib/i18n";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
+import { InstallPrompt } from "@/components/shared/InstallPrompt";
+import { Logo } from "@/components/ui/Logo";
 
 interface NavItem {
   href: string;
@@ -159,14 +161,7 @@ export function Sidebar({
     >
       <div className="flex h-full flex-col">
         <div className="flex items-center justify-between h-16 px-6 border-b border-slate-200">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded bg-teal-600 flex items-center justify-center text-white font-bold">
-              LL
-            </div>
-            <span className="font-bold text-navy-900 hidden sm:block">
-              LearnLoop
-            </span>
-          </Link>
+          <Logo size="sm" />
           <button
             onClick={onClose}
             className="lg:hidden p-2 text-slate-500 hover:text-slate-700"
@@ -202,21 +197,39 @@ export function Sidebar({
 
         <div className="p-4 border-t border-slate-200">
           <div className="mb-4">
-            <label className="block text-xs font-medium text-slate-500 mb-2">
+            <label className="block text-xs font-semibold text-slate-500 mb-2">
               {t("common", "language")}
             </label>
-            <select
-              value={locale}
-              onChange={(e) => onLocaleChange(e.target.value)}
-              className="w-full rounded-md border border-slate-200 bg-white px-2 py-1.5 text-sm text-slate-900 focus:border-teal-600 focus:outline-none"
-            >
-              {LOCALES.map((l) => (
-                <option key={l} value={l}>
-                  {l === "en" ? t("common", "english") : l === "kn" ? t("common", "kannada") : t("common", "hindi")}
-                </option>
-              ))}
-            </select>
+            <div className="grid grid-cols-2 gap-1.5 p-1 bg-slate-100 rounded-lg border border-slate-200">
+              <button
+                type="button"
+                onClick={() => onLocaleChange("en")}
+                className={cn(
+                  "py-1.5 px-2 text-xs font-medium rounded-md transition-all text-center",
+                  locale === "en"
+                    ? "bg-white text-teal-800 shadow-xs font-bold"
+                    : "text-slate-600 hover:text-slate-900"
+                )}
+              >
+                English
+              </button>
+              <button
+                type="button"
+                onClick={() => onLocaleChange("kn")}
+                className={cn(
+                  "py-1.5 px-2 text-xs font-medium rounded-md transition-all text-center",
+                  locale === "kn"
+                    ? "bg-white text-teal-800 shadow-xs font-bold"
+                    : "text-slate-600 hover:text-slate-900"
+                )}
+              >
+                ಕನ್ನಡ
+              </button>
+            </div>
           </div>
+
+          <InstallPrompt locale={locale} className="w-full justify-center mb-3" />
+
           <div className="p-3 rounded-lg border border-slate-200 bg-slate-50">
             <p className="text-xs font-medium text-navy-900">{user.name}</p>
             <p className="text-xs text-slate-500">{user.email}</p>

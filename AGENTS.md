@@ -29,7 +29,7 @@ npm run lint                # ESLint
 - **Offline:** Dexie.js (IndexedDB), service worker, PWA manifest
 - **AI:** NVIDIA Nemotron Lightning with mock fallback (src/lib/ai-service.ts)
 - **Misconception Engine:** Deterministic rules (src/lib/learning-engine.ts)
-- **i18n:** Centralized translations (src/lib/i18n.ts) — EN, KN, HI
+- **i18n:** Centralized translations (src/lib/i18n.ts) — EN, KN
 - **QR:** qrcode library for generation
 
 ## Testing
@@ -58,7 +58,7 @@ npm run lint                # ESLint
 - `src/lib/ai-service.ts` — Nemotron AI service with mock fallback
 - `src/lib/dexie.ts` — IndexedDB offline storage
 - `src/lib/qr-utils.ts` — QR code generation and parsing
-- `src/lib/i18n.ts` — Translation system (EN/KN/HI)
+- `src/lib/i18n.ts` — Translation system (EN/KN)
 - `src/contexts/AuthContext.tsx` — Authentication context
 - `database/schema.sql` — PostgreSQL schema (for Supabase migration)
 

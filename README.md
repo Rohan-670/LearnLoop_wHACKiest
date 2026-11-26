@@ -31,7 +31,7 @@ LearnLoop Intelligence is an integrated learning system that identifies where st
 - **QR:** qrcode (generation)
 - **Validation:** zod
 - **Testing:** Vitest
-- **i18n:** Centralized translation (English, Kannada, Hindi)
+- **i18n:** Centralized translation (English, Kannada)
 - **AI:** NVIDIA Nemotron Lightning (server-side) with mock fallback
 
 ## Folder Structure
@@ -250,7 +250,7 @@ Tested sequence:
 | Sync payload | < 100 KB | ✅ |
 | Offline attempt recovery | 100% | ✅ |
 | Duplicate sync prevention | Zero duplicates | ✅ |
-| Languages supported | 3 (EN/KN/HI) | ✅ |
+| Languages supported | 2 (EN/KN) | ✅ |
 
 ## Known Limitations
 

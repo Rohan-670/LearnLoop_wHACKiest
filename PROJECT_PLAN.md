@@ -4,7 +4,7 @@
 - **Name:** LearnLoop Intelligence
 - **Tagline:** Learning that understands every student. Education that works everywhere.
 - **Track:** Low-bandwidth adaptive learning for rural schools
-- **Target:** Class 6–8 students, teachers, administrators (India-focused; English/Kannada/Hindi)
+- **Target:** Class 6–8 students, teachers, administrators (India-focused; English/Kannada)
 
 ## Core differentiators (implemented)
 A. Misconception Intelligence Engine — deterministic misconception rules with confidence levels, visual remediation, follow-up questions
@@ -27,7 +27,7 @@ G. Learning Continuity Engine — unique event IDs, idempotent sync, versioned c
 - **Backend:** Next.js API routes with in-memory seeded store (Supabase-ready; schema SQL provided). No hardcoded keys.
 - **AI:** NVIDIA Nemotron Lightning server-side service with clearly-labeled mock fallback when API key is absent
 - **Testing:** Vitest + React Testing Library + Playwright (or manual E2E if unavailable)
-- **i18n:** Centralized translation system (en, kn, hi) — no hardcoded UI text
+- **i18n:** Centralized translation system (en, kn) — no hardcoded UI text
 
 ## Data model (relational, normalized)
 users, student_profiles, teachers, classes, class_members, subjects, topics, lessons, lesson_versions, questions, question_options, attempts, misconception_rules, misconception_events, mastery_records, assignments, downloads, sync_events, teacher_interventions, ai_interactions

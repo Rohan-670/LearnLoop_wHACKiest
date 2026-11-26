@@ -229,7 +229,7 @@ export type LearningDNA = {
   recommended_next_activity: string;
 };
 
-export type Locale = "en" | "kn" | "hi";
+export type Locale = "en" | "kn";
 
 export type DataMode = "saver" | "balanced" | "rich";
 
